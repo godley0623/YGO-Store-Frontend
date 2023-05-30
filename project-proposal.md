@@ -29,13 +29,13 @@ A fake online card store that uses a Yugioh api to get the cards used to make th
 ![image](screenshots/ygo-store-search.png)
 
 ## User Stories
--As a user I should be able to query '/' route to get all cards
+-As a user I should be able to query '/' route to get all cards  
 -As a user I should be able to query '/archetype/:archetype' route to get all cards from a given archetype
 
 #### MVP Goals
--Allow the users to search cards
--Allow the user to add cards to their cart
--Create an animation that enlarges the card when you hover over it
+-Allow the users to search cards  
+-Allow the user to add cards to their cart  
+-Create an animation that enlarges the card when you hover over it  
 
 #### Stretch Goals
 -Create an Auth system to allow users to sign up and login
