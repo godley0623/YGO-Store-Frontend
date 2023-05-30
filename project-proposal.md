@@ -36,6 +36,7 @@ A fake online card store that uses a Yugioh api to get the cards used to make th
 -Allow the users to search cards  
 -Allow the user to add cards to their cart  
 -Create an animation that enlarges the card when you hover over it  
+-Save the user's cart in the local storage  
 
 #### Stretch Goals
 -Create an Auth system to allow users to sign up and login
