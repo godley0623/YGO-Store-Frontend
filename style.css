@@ -1,0 +1,51 @@
+header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: black;
+}
+
+.search-index {
+    height: 40px;
+    border-radius: 12px;
+    grid-column: 2 / 2;
+    align-self: center;
+}
+.search-button {
+    grid-column: 3 / 3;
+    height: 40px;
+    width: 80px;
+    align-self: center;
+}
+
+.title {
+    color: white;
+    grid-column: 1 / 1;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+    justify-self: center;
+}
+
+.card-name {
+    text-align: center;
+}
+
+.card-price {
+    color: rgb(82, 181, 11);
+    text-align: center;
+}
+
+.card-amount {
+    width: 24px;
+    justify-self: center;
+}
+
+.card-image {
+    width: 210.5px;
+    height: 307px;
+}
