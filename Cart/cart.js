@@ -2,6 +2,7 @@
 const noItemsDiv = document.querySelector('.no-items');
 const itemsUl = document.querySelector('.items');
 const totalDiv = document.querySelector('.total');
+const emptyCartBtn = document.querySelector('.empty-cart');
 
 /*----- Global Variables -----*/
 const formatting_options = {
@@ -13,11 +14,23 @@ const USD = new Intl.NumberFormat( 'en-US', formatting_options );
 
 /*----- Functions -----*/
 async function getCheckoutItems () {
-    const response = await fetch ('http://localhost:4000/cart/');
+    const response = await fetch ('https://ygo-store-backend.herokuapp.com/cart/');
     const cart = await response.json();
     return cart[0].cart;
 }
 
+async function emptyCart () {
+    const response = await fetch ('https://ygo-store-backend.herokuapp.com/cart/delete', {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+    location.reload();
+}
+
+/*----- Function Calls -----*/
 getCheckoutItems()
 .then((cart) => {
     if (cart.length === 0) {
@@ -39,4 +52,9 @@ getCheckoutItems()
         totalDiv.innerHTML = `Total: <span class='price-color'>${USD.format(total)}</span>`
         console.log(USD.format(total))
     }
+})
+
+/*----- Event Listners -----*/
+emptyCartBtn.addEventListener('click', () => {
+    emptyCart();
 })

@@ -19,7 +19,7 @@ const searchInput = document.querySelector('.search-index');
 /*----- Event Listners -----*/
 eventDelegation('click', 'search-button', () => {
     let foundCards = false;
-    getCards('http://localhost:4000/', `archetype/${searchInput.value}`)
+    getCards('https://ygo-store-backend.herokuapp.com/', `archetype/${searchInput.value}`)
     .then((response) => {
         if (response.length !== 0) {
             deleteCardDivs();
@@ -28,7 +28,7 @@ eventDelegation('click', 'search-button', () => {
             return true;
         }
         if (!foundCards) {
-            getCards('http://localhost:4000/', `name/${searchInput.value}`)
+            getCards('https://ygo-store-backend.herokuapp.com/', `name/${searchInput.value}`)
             .then((response) => {
                 if (response.length !== 0) {
                     deleteCardDivs();
@@ -39,7 +39,7 @@ eventDelegation('click', 'search-button', () => {
             })
         }
         if (!foundCards) {
-            getCards('http://localhost:4000/', `similar/${searchInput.value}`)
+            getCards('https://ygo-store-backend.herokuapp.com/', `similar/${searchInput.value}`)
             .then((response) => {
                 if (response.length !== 0) {
                     deleteCardDivs();
@@ -81,7 +81,7 @@ eventDelegation('click', 'cart', async (el) => {
     const cardAmount = document.querySelector(`#card-amount-${buttonNum}`);
 
     let cardInCart = false
-    await getCards(`http://localhost:4000/name/${cardName.innerText}`)
+    await getCards(`https://ygo-store-backend.herokuapp.com/name/${cardName.innerText}`)
     .then((response) => {
         if (cart.length === 0) {
             cart.push({
@@ -105,11 +105,11 @@ eventDelegation('click', 'cart', async (el) => {
         }
     })
     alert(`${cardAmount.value} ${cardName.innerText} was added to your cart`);
-    addToCart('http://localhost:4000/cart/add', {cart: cart});
+    addToCart('https://ygo-store-backend.herokuapp.com/cart/add', {cart: cart});
 })
 
 //Getting 20 random cards for the opening page
-getCards('http://localhost:4000/')
+getCards('https://ygo-store-backend.herokuapp.com/')
 .then((response) => {
     let randomCards = chooseRandom(response, 20)
     createCardDivs(cardContainer, randomCards);

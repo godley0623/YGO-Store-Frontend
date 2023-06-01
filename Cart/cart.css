@@ -22,3 +22,28 @@ li.items, .total {
     margin-left: 200px;
     margin-right: 200px;
 }
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.proceed {
+    grid-column: 1 / 1;
+    grid-row: 3 / 3;
+    width: 96px;
+    justify-self: center;
+    background-color: green;
+    color: white;
+    border-radius: 12px;
+
+}
+.empty-cart {
+    grid-column: 3 / 3;
+    grid-row: 3 / 3;
+    width: 96px;
+    justify-self: center;
+    background-color: red;
+    color: white;
+    border-radius: 12px;
+}
