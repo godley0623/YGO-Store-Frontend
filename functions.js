@@ -1,3 +1,11 @@
+/*----- Global Variables -----*/
+const formatting_options = {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+}
+const USD = new Intl.NumberFormat( 'en-US', formatting_options );
+
 /*----- Normal -----*/
 export function chooseRandom (arr, amount = 1) {
     let newArr = [];
@@ -29,7 +37,7 @@ export function createCardDivs (container, cards) {
         cardDiv.innerHTML = `
         <img src=${cards[i].card_image} class='card-image' id='card-image-${i+1}'>
         <h3 class='card-name' id='card-name-${i+1}'>${cards[i].name}</h3>
-        <p class='card-price' id='card-price-${i+1}'>$${cards[i].card_price}</p>
+        <p class='card-price' id='card-price-${i+1}'>${USD.format(cards[i].card_price)}</p>
         <input class='card-amount' id='card-amount-${i+1}' value='1'>
         <button class='cart' id='cart-${i+1}'>Add to Cart</button>
         `;
@@ -45,13 +53,17 @@ export function deleteCardDivs () {
     }
 }
 
-export function eventDelegation (action, selector, cb) {
+export function eventDelegation (action, selector, cb = (el=null)=>{}) {
     let body = document.querySelector('body');
-    body.addEventListener(action, (e)=> {
-        if (selector === e.target.getAttribute('class')) {
-            cb();
-        }
-    })
+    try {
+        body.addEventListener(action, (e)=> {
+            if (selector === e.target.getAttribute('class').split(' ')[0]) {
+                cb(e.target);
+            }
+        })
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 /*----- Async -----*/

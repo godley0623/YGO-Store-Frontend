@@ -73,3 +73,8 @@ price: Number - The price of the item
 #### Stretch Goals
 -Create an Auth system to allow users to sign up and login
 -Create a decklist function for users to create a deck
+
+### Timeline
+| Tuesday          | Wednesday                                | Thursday                                  | Friday                          |                                  Saturday | Sunday                                             |
+|------------------|------------------------------------------|-------------------------------------------|---------------------------------|------------------------------------------:|----------------------------------------------------|
+| Complete backend | Work on the landing page of the frontend | Work on the checkout page of the frontend | Work on the create deck feature | Work on a card info page for the frontend | Fix up the css and work on any unfinished features |

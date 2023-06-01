@@ -1,51 +1,192 @@
-header {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: black;
+body {
+    margin: 0;
 }
 
-.search-index {
-    height: 40px;
-    border-radius: 12px;
-    grid-column: 2 / 2;
-    align-self: center;
-}
-.search-button {
-    grid-column: 3 / 3;
-    height: 40px;
-    width: 80px;
-    align-self: center;
+@media screen and (min-width: 450px) {
+    header {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background-color: black;
+    }
+    
+    .search-index {
+        height: 40px;
+        border-radius: 12px;
+        grid-column: 2 / 2;
+        align-self: center;
+    }
+    .search-button {
+        grid-column: 3 / 3;
+        height: 40px;
+        width: 80px;
+        align-self: center;
+    }
+    
+    .title {
+        color: white;
+        grid-column: 1 / 1;
+    }
+    
+    .image-header {
+        width: 100vw;
+        padding-top: 25vh;
+        padding-bottom: 25vh;
+        background-image: url("./assets/YGObackground_1.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .card {
+        justify-self: center;
+    }
+    
+    .card-name {
+        text-align: center;
+    }
+    
+    .card-price {
+        color: rgb(82, 181, 11);
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .card-amount {
+        width: 24px;
+        justify-self: center;
+    }
+    
+    .card-image {
+        /*Original size 421w x 614h*/
+        width: 210.5px;
+        height: 307px;
+    }
+    
+    .shrink {
+        animation: expand-card-reverse 125ms;
+        width: 210.5px;
+        height: 307px;
+    }
+    
+    .expand {
+        animation: expand-card 125ms; 
+        width: 378px;
+        height: 552px;
+    }
+    
+    @keyframes expand-card {
+        0% {
+            width: 210px;
+            height: 307px;
+        }
+        25% {
+            width: 252px;
+            height: 368px;
+        }
+        50% {
+            width: 294px;
+            height: 429px;
+        }
+        75% {
+            width: 366px;
+            height: 491px;
+        }
+        100% {
+            width: 378px;
+            height: 552px;
+        }
+    }
+    
+    @keyframes expand-card-reverse {
+        0% {
+            width: 378px;
+            height: 552px;
+        }
+        25% {
+            width: 366px;
+            height: 491px;
+        }
+        50% {
+            width: 294px;
+            height: 429px;
+        }
+        75% {
+            width: 252px;
+            height: 368px;
+        }
+        100% {
+            width: 210px;
+            height: 307px;
+        }
+    }
 }
 
-.title {
-    color: white;
-    grid-column: 1 / 1;
-}
+@media screen and (max-width: 450px) {
+    header {
+        display: grid;
+        grid-template-columns: repeat(20, 1fr);
+        background-color: black;
+    }
 
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
+    .title {
+        color: white;
+        grid-column: 1 / 5;
+        font-size: 16px;
+    }
 
-.card {
-    justify-self: center;
-}
+    .search-index {
+        height: 40px;
+        border-radius: 12px;
+        grid-column: 6 / 15;
+        align-self: center;
+    }
+    .search-button {
+        grid-column: 15 / 20;
+        height: 40px;
+        width: 80px;
+        align-self: center;
+    }
 
-.card-name {
-    text-align: center;
-}
+    .image-header {
+        width: 100vw;
+        padding-top: 12.5vh;
+        padding-bottom: 12.5vh;
+        background-image: url("./assets/YGObackground_1.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
 
-.card-price {
-    color: rgb(82, 181, 11);
-    text-align: center;
-}
-
-.card-amount {
-    width: 24px;
-    justify-self: center;
-}
-
-.card-image {
-    width: 210.5px;
-    height: 307px;
+    .card {
+        justify-self: center;
+    }
+    
+    .card-name {
+        text-align: center;
+    }
+    
+    .card-price {
+        color: rgb(82, 181, 11);
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .card-amount {
+        width: 24px;
+        justify-self: center;
+    }
+    
+    .card-image {
+        /*Original size 294.7w x 429.8h*/
+        width: 294.7px;
+        height: 429.8px;
+    }
 }

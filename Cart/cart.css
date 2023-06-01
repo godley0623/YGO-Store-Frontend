@@ -1,0 +1,24 @@
+.checkout-text {
+    font-size: 48px;
+    text-align: center;
+}
+
+.no-items {
+    color: red;
+    font-size: 64px;
+}
+
+li.items, .total {
+    list-style-type: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+}
+.price-color {
+    color: rgb(82, 181, 11);
+}
+.line {
+    border-bottom: 1px solid black;
+    margin-left: 200px;
+    margin-right: 200px;
+}
