@@ -1,0 +1,19 @@
+.card-container-grid {
+    background-image: url("../assets/YGObackground_2.webp");
+    background-size: cover;
+    height: 125vh;
+}
+.card-image {
+    margin: 0 auto;
+    width: 421px;
+    height: 614px;
+}
+.image {
+    width: 421px;
+    height: 614px;
+}
+
+h2, h3 {
+    color: white;
+    text-align: center;
+}

@@ -45,7 +45,7 @@ getCheckoutItems()
 
             itemList.setAttribute('class', 'items');
             itemList.setAttribute('id', `items-${i+1}`);
-            itemList.innerHTML = `${cart[i].item.name} x${cart[i].quantity}: <span class='price-color'>${USD.format(cart[i].price * cart[i].quantity)}</span>`;
+            itemList.innerHTML = `${cart[i].item} x${cart[i].quantity}: <span class='price-color'>${USD.format(cart[i].price * cart[i].quantity)}</span>`;
 
             itemsUl.append(itemList);
         }

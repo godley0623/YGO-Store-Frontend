@@ -18,6 +18,11 @@ const searchInput = document.querySelector('.search-index');
 
 /*----- Event Listners -----*/
 eventDelegation('click', 'search-button', () => {
+    if (searchInput.value.length < 3) {
+        alert('Character string must at least be 3 characters long');
+        return;
+    }
+
     let foundCards = false;
     getCards('https://ygo-store-backend.herokuapp.com/', `archetype/${searchInput.value}`)
     .then((response) => {
@@ -52,6 +57,7 @@ eventDelegation('click', 'search-button', () => {
     })
 })
 
+//Enlarge Card Image
 eventDelegation('click', 'card-image', (el) => {
     if (el.classList[1] === 'shrink' || el.classList[1] === undefined) {
         let allCards = document.querySelectorAll('.card-image');
@@ -72,6 +78,18 @@ eventDelegation('click', 'card-image', (el) => {
     }
 })
 
+//Clicking the card info button
+eventDelegation('click', 'info', async (el) => {
+    const infoNum = el.getAttribute('id').split('-')[1];
+    const cardName = document.querySelector(`#card-name-${infoNum}`).innerText
+
+    await getCards(`https://ygo-store-backend.herokuapp.com/name/${cardName}`)
+    .then((response) => {
+        localStorage.setItem('card-info', JSON.stringify(response));
+        location.assign('./Info/info.html');
+    })
+})
+
 //Clicking the cart button
 eventDelegation('click', 'cart', async (el) => {
     const buttonIdSplit = el.getAttribute('id').split('-');
@@ -85,7 +103,7 @@ eventDelegation('click', 'cart', async (el) => {
     .then((response) => {
         if (cart.length === 0) {
             cart.push({
-                item: response[0],
+                item: cardName.innerText,
                 quantity: Number(cardAmount.value),
                 price: response[0].card_price
             });
@@ -98,7 +116,7 @@ eventDelegation('click', 'cart', async (el) => {
                 }
             }
             if (!cardInCart) cart.push({
-                item: response[0],
+                item: cardName.innerText,
                 quantity: Number(cardAmount.value),
                 price: response[0].card_price
             });
@@ -116,7 +134,6 @@ getCards('https://ygo-store-backend.herokuapp.com/')
 })
 
 async function addToCart(url, body) {
-    console.log(body)
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -125,6 +142,5 @@ async function addToCart(url, body) {
         body: JSON.stringify(body)
     })
 
-    console.log(response)
     return response;
 }

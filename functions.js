@@ -40,6 +40,7 @@ export function createCardDivs (container, cards) {
         <p class='card-price' id='card-price-${i+1}'>${USD.format(cards[i].card_price)}</p>
         <input class='card-amount' id='card-amount-${i+1}' value='1'>
         <button class='cart' id='cart-${i+1}'>Add to Cart</button>
+        <button class='info' id='cart-${i+1}'>Card Info</button>
         `;
         container.append(cardDiv);
         resizeText(container.querySelector(`#card-name-${i+1}`));

@@ -151,8 +151,16 @@ footer {
 
     .title {
         color: white;
-        grid-column: 1 / 5;
-        font-size: 16px;
+        grid-column: 1 / 1;
+        text-decoration: none;
+    }
+
+    a.cart {
+        color: white;
+        font-size: 32px;
+        grid-column: 4 / 4;
+        justify-self: center;
+        align-self: center;
     }
 
     .search-index {
@@ -180,6 +188,7 @@ footer {
     .card-container {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
+        background-image: url("./assets/YGObackground_2.webp");
     }
 
     .card {
@@ -188,6 +197,7 @@ footer {
     
     .card-name {
         text-align: center;
+        color: white;
     }
     
     .card-price {
