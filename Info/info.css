@@ -17,3 +17,8 @@ h2, h3 {
     color: white;
     text-align: center;
 }
+
+h3 {
+    margin-left: 150px;
+    margin-right: 150px;
+}

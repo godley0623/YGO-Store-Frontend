@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js" type="module"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./deck.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>YGO-Store</title>
+    <script defer src="./deck.js"></script>
+    <title>YGO Deck Maker</title>
 </head>
 <body>
     <header>
-        <h1 class="title"><a class="title" href="./index.html">YGO-Store</a></h1>
+        <h1 class="title"><a class="title" href="../index.html">YGO-Store</a></h1>
         <input type="text" class="search-index" placeholder="Search Cards">
         <button class="search-button">Search</button>
-        <h2 class="deck-maker"><a href="./Deck/deck.html" class="deck-maker">Deck Maker</a><input class="deck-mode" type="checkbox"> <button class="empty-deck">Empty Deck</button> <button class="show-deck">Show Deck</button></h2>
-        <a href="./Cart/cart.html" class="cart"><i class="fa fa-shopping-cart"></i></a>
+        <h2 class="deck-maker"><a href="./deck.html" class="deck-maker">Deck Maker</a></h2>
+        <a href="../Cart/cart.html" class="cart"><i class="fa fa-shopping-cart"></i></a>
     </header>
     <main>
         <div class="image-header"></div>
-        <div class="card-container"></div>
+        <div class="deck-container">
+            <h1 class="decks-title">Decks</h1>
+            <div class="decks"></div>
+            <div class="new-deck">
+                <p class="add-new-deck"><span class="plus-sign">+</span> Add Deck</p>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="contacts">

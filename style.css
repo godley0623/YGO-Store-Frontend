@@ -4,14 +4,31 @@ body {
 
 footer {
     background-color: grey;
-    height: 100px;
+    height: 20vh;
     text-align: center;
+}
+
+.github-logo {
+    color: white;
+    font-size: 64px;
+    margin-right: 15px;
+}
+.github-logo:hover {
+    color: yellow;
+}
+
+.linkedin-logo {
+    color: white;
+    font-size: 56px;
+}
+.linkedin-logo:hover {
+    color: yellow;
 }
 
 @media screen and (min-width: 450px) {
     header {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         background-color: black;
     }
     
@@ -34,12 +51,26 @@ footer {
         text-decoration: none;
     }
 
+    .deck-maker {
+        grid-column: 4 / 4;
+        justify-self: start;
+        align-self: center;
+        color: white;
+        text-decoration: none;
+    }
+    .deck-maker:hover {
+        color: yellow;
+    }
+
     a.cart {
         color: white;
         font-size: 32px;
-        grid-column: 4 / 4;
+        grid-column: 5 / 5;
         justify-self: center;
         align-self: center;
+    }
+    a.cart:hover {
+        color: yellow;
     }
     
     .image-header {

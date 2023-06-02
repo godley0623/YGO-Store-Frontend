@@ -1,0 +1,27 @@
+.decks-title {
+    text-align: center;
+    font-size: 64px;
+    text-decoration: underline;
+}
+.new-deck {
+    margin: 0 auto;
+    text-align: center;
+}
+.add-new-deck {
+    font-size: 32px;
+}
+.plus-sign {
+    padding: 8px;
+    color: aqua;
+    border-style: dotted;
+    border-radius: 50%;
+    font-weight: bold;
+}
+.plus-sign:hover {
+    color: yellow;
+}
+
+.decks {
+    text-align: center;
+    list-style-type: none;
+}
