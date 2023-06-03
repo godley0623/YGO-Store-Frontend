@@ -85,6 +85,49 @@ export function deckSizeCheck (deck, max) {
     }
 }
 
+export function deckCreate (mainDeck, extraDeck) {
+    let monsters = [];
+    let spells = [];
+    let traps = [];
+    let md = [];
+    let ed = [];
+    let fullDeck = [];
+    let temp;
+
+    if (mainDeck.length > 0) {
+        for (let i = 0; i < mainDeck.length; i++) {
+            if (mainDeck[i].type.includes('Monster')) {
+                temp = Array(mainDeck[i].quantity).fill(mainDeck[i])
+                monsters = monsters.concat(temp);
+            } else if (mainDeck[i].type.includes('Spell')) {
+                temp = Array(mainDeck[i].quantity).fill(mainDeck[i])
+                spells = spells.concat(temp); 
+            } else {
+                temp = Array(mainDeck[i].quantity).fill(mainDeck[i])
+                traps = traps.concat(temp);
+            }
+        }
+        md = md.concat(monsters);
+        md = md.concat(spells);
+        md = md.concat(traps);
+    } else {
+        return false
+    }
+
+    if (extraDeck.length > 0) {
+        for (let i = 0; i < extraDeck.length; i++) {
+            temp = Array(extraDeck[i].quantity).fill(extraDeck[i]);
+            ed = ed.concat(temp);
+        }
+    }
+
+    fullDeck = fullDeck.concat(md);
+    fullDeck = fullDeck.concat(ed);
+
+    return fullDeck;
+}
+
+
 /*----- Async -----*/
 export async function getCards (url, route = '') {
     let jsonArr;

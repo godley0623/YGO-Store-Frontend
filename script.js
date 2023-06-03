@@ -6,14 +6,16 @@ import {
     deleteCardDivs,
     eventDelegation,
     deckSizeCheck,
+    deckCreate,
     //Async Functions
     getCards 
 } from './functions.js'
 
 /*----- Global Variables -----*/
 let cart = [];
-const mainDeck = [];
-const extraDeck = [];
+let mainDeck = [];
+let extraDeck = [];
+let getDeck = localStorage.getItem('Deck') || [];
 
 /*----- Storing DOM Elements -----*/
 const cardContainer = document.querySelector('.card-container');
@@ -23,7 +25,6 @@ const emptyDeckBtn = document.querySelector('.empty-deck');
 const showDeckBtn = document.querySelector('.show-deck');
 
 /*----- Event Listners -----*/
-
 //DeckMode Toggle
 deckModeInput.addEventListener('click', () => {
 
@@ -118,6 +119,27 @@ eventDelegation('click', 'deck', async (el) => {
     })
 })
 
+//Showing cards in deck
+eventDelegation('click', 'show-deck', () => {
+    const fullDeck = deckCreate(mainDeck, extraDeck);
+    if (fullDeck) {
+        deleteCardDivs();
+        createCardDivs(cardContainer, fullDeck);
+        deckModeInput.checked = false;
+        localStorage.setItem('Deck', JSON.stringify(fullDeck));
+    } else {
+        alert('Your Main Deck is empty');
+        return false;
+    }
+})
+
+//Empty cards in deck
+eventDelegation('click', 'empty-deck', () => {
+    mainDeck = [];
+    extraDeck = [];
+    localStorage.setItem('Deck', JSON.stringify([]));
+    location.reload();
+})
 
 //Searching for Cards
 eventDelegation('click', 'search-button', () => {
@@ -236,7 +258,7 @@ eventDelegation('click', 'cart', async (el) => {
 getCards('https://ygo-store-backend.herokuapp.com/')
 .then((response) => {
     let randomCards = chooseRandom(response, 20)
-    createCardDivs(cardContainer, randomCards);
+    if (getDeck.length === 0) createCardDivs(cardContainer, randomCards);
 })
 
 //Adding Cards to cart database
@@ -250,4 +272,11 @@ async function addToCart(url, body) {
     })
 
     return response;
+}
+
+//Showing the cards that are saved in your deck
+if (getDeck.length > 0) {
+    getDeck = JSON.parse(getDeck);
+    deleteCardDivs();
+    createCardDivs(cardContainer, getDeck);
 }
