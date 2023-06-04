@@ -140,3 +140,16 @@ export async function getCards (url, route = '') {
     })
     return jsonArr;
 }
+
+//Adding Cards to cart database
+export async function addToCart(url, body) {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+
+    return response;
+}

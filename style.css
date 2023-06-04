@@ -28,7 +28,7 @@ footer {
 @media screen and (min-width: 450px) {
     header {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: 300px; 
         background-color: black;
     }
     
@@ -176,7 +176,8 @@ footer {
 @media screen and (max-width: 450px) {
     header {
         display: grid;
-        grid-template-columns: repeat(20, 1fr);
+        grid-template-columns: 300px;
+        grid-template-rows: 80px 46px;
         background-color: black;
     }
 
@@ -186,10 +187,20 @@ footer {
         text-decoration: none;
     }
 
+    .deck-maker {
+        grid-column: 1 / 4;
+        grid-row: 2 / 2;
+        justify-self: start;
+        align-self: center;
+        color: white;
+        text-decoration: none;
+    }
+
     a.cart {
         color: white;
         font-size: 32px;
-        grid-column: 4 / 4;
+        grid-column: 2 / 2;
+        grid-row: 1 / 1;
         justify-self: center;
         align-self: center;
     }
@@ -197,14 +208,14 @@ footer {
     .search-index {
         height: 40px;
         border-radius: 12px;
-        grid-column: 6 / 15;
-        align-self: center;
+        grid-column: 1 / 2;
+        grid-row: 3 / 3;
     }
     .search-button {
-        grid-column: 15 / 20;
+        grid-column: 2 / 2;
+        grid-row: 3 / 3;
         height: 40px;
         width: 80px;
-        align-self: center;
     }
 
     .image-header {
@@ -246,5 +257,11 @@ footer {
         /*Original size 294.7w x 429.8h*/
         width: 294.7px;
         height: 429.8px;
+    }
+
+    div.card-image, img.image {
+        width: 294.7px;
+        height: 429.8px;
+
     }
 }

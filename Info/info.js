@@ -9,7 +9,6 @@ let cardHTML;
 let card = localStorage.getItem('card-info');
 card = JSON.parse(card);
 card = card[0];
-console.log(card);
 
 let cardImage = card.card_image;
 

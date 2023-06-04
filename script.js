@@ -8,7 +8,8 @@ import {
     deckSizeCheck,
     deckCreate,
     //Async Functions
-    getCards 
+    getCards,
+    addToCart
 } from './functions.js'
 
 /*----- Global Variables -----*/
@@ -25,6 +26,16 @@ const emptyDeckBtn = document.querySelector('.empty-deck');
 const showDeckBtn = document.querySelector('.show-deck');
 
 /*----- Event Listners -----*/
+
+//Keyboard events
+document.addEventListener('keydown', (key) => {
+    if (key.code === 'KeyD') deckModeInput.click();
+    
+    let focusEl = searchInput;
+    let isFocus = (document.activeElement === focusEl);
+    if (key.code === 'Enter' && isFocus) document.querySelector('.search-button').click();
+})
+
 //DeckMode Toggle
 deckModeInput.addEventListener('click', () => {
 
@@ -254,25 +265,14 @@ eventDelegation('click', 'cart', async (el) => {
     addToCart('https://ygo-store-backend.herokuapp.com/cart/add', {cart: cart});
 })
 
+/*----- Function Calls -----*/
+
 //Getting 20 random cards for the opening page
 getCards('https://ygo-store-backend.herokuapp.com/')
 .then((response) => {
     let randomCards = chooseRandom(response, 20)
     if (getDeck.length === 0) createCardDivs(cardContainer, randomCards);
 })
-
-//Adding Cards to cart database
-async function addToCart(url, body) {
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    })
-
-    return response;
-}
 
 //Showing the cards that are saved in your deck
 if (getDeck.length > 0) {
