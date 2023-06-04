@@ -222,7 +222,7 @@ eventDelegation('click', 'info', async (el) => {
     const infoNum = el.getAttribute('id').split('-')[1];
     const cardName = document.querySelector(`#card-name-${infoNum}`).innerText
 
-    await getCards(`https://ygo-store-backend.herokuapp.com/name/${cardName}`)
+    await getCards(`https://ygo-store-backend.herokuapp.com/name/exact/${cardName}`)
     .then((response) => {
         localStorage.setItem('card-info', JSON.stringify(response));
         location.assign('./Info/info.html');
