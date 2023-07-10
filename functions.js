@@ -38,9 +38,11 @@ export function createCardDivs (container, cards) {
         <img src=${cards[i].card_image} class='card-image' id='card-image-${i+1}'>
         <h3 class='card-name' id='card-name-${i+1}'>${cards[i].name}</h3>
         <p class='card-price' id='card-price-${i+1}'>${USD.format(cards[i].card_price)}</p>
-        <button class='info' id='cart-${i+1}'>Card Info</button>
-        <input class='card-amount' id='card-amount-${i+1}' value='1'>
-        <button class='cart' id='cart-${i+1}'>Add to Cart</button>
+        <div class='buy-container'>
+            <button class='info' id='cart-${i+1}'>Card Info</button>
+            <input class='card-amount' id='card-amount-${i+1}' value='1'>
+            <button class='cart' id='cart-${i+1}'>Add to Cart</button>
+        </div>
         `;
         container.append(cardDiv);
         resizeText(container.querySelector(`#card-name-${i+1}`));

@@ -25,6 +25,19 @@ footer {
     color: yellow;
 }
 
+.buy-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.buy-container button {
+    height: 25px;
+}
+.buy-container input {
+    height: 20px;
+}
+
+
 @media screen and (min-width: 450px) {
     header {
         display: grid;
@@ -89,7 +102,11 @@ footer {
     }
     
     .card {
+        position: relative;
         justify-self: center;
+
+        display: grid;
+        grid-template-rows: 1fr repeat(3, 40px);
     }
     
     .card-name {
@@ -105,7 +122,6 @@ footer {
     
     .card-amount {
         width: 24px;
-        justify-self: center;
     }
     
     .card-image {
@@ -173,7 +189,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
     header {
         display: grid;
         grid-template-columns: 300px;
@@ -234,7 +250,11 @@ footer {
     }
 
     .card {
+        position: relative;
         justify-self: center;
+
+        display: flex;
+        flex-direction: column;
     }
     
     .card-name {
@@ -250,7 +270,6 @@ footer {
     
     .card-amount {
         width: 24px;
-        justify-self: center;
     }
     
     .card-image {
